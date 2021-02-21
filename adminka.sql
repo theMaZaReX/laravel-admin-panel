@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 20 2021 г., 16:55
+-- Время создания: Фев 21 2021 г., 11:31
 -- Версия сервера: 8.0.19
 -- Версия PHP: 7.3.17
 
@@ -34,6 +34,15 @@ CREATE TABLE `authors` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `authors`
+--
+
+INSERT INTO `authors` (`author_id`, `full_name`, `created_at`, `updated_at`) VALUES
+(1, 'Александр Сергеевич Пушкин', '2021-02-21 05:16:08', '2021-02-21 05:16:08'),
+(2, 'Васильев Владимир Николаевич', '2021-02-21 05:20:29', '2021-02-21 05:20:29'),
+(3, 'Лукьяненко Сергей Васильевич', '2021-02-21 05:21:29', '2021-02-21 05:21:29');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +56,15 @@ CREATE TABLE `authors_books` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `authors_books`
+--
+
+INSERT INTO `authors_books` (`author_id`, `book_id`, `created_at`, `updated_at`) VALUES
+(1, 1, NULL, NULL),
+(2, 2, NULL, NULL),
+(3, 2, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -59,6 +77,14 @@ CREATE TABLE `books` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `books`
+--
+
+INSERT INTO `books` (`book_id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Евгений Онегин', '2021-02-21 05:16:22', '2021-02-21 05:16:22'),
+(2, 'Дневной дозор', '2021-02-21 05:21:45', '2021-02-21 05:21:45');
 
 -- --------------------------------------------------------
 
@@ -131,6 +157,13 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'dmitri446', 'dmitri446@gmail.com', NULL, '$2y$10$8QbldPy.hDMA6UDIDz2skeiTCPxoeUZmoCy/4KoCO5clxgWrZk9fu', NULL, '2021-02-21 05:15:56', '2021-02-21 05:15:56');
+
+--
 -- Индексы сохранённых таблиц
 --
 
@@ -188,13 +221,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `authors`
 --
 ALTER TABLE `authors`
-  MODIFY `author_id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `author_id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `books`
 --
 ALTER TABLE `books`
-  MODIFY `book_id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `book_id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `failed_jobs`
@@ -212,7 +245,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
